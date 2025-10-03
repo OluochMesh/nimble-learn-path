@@ -7,12 +7,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ProgressBar from "@/components/ProgressBar";
+import LessonViewer from "@/components/LessonViewer";
 import { toast } from "sonner";
 
 const CoursePage = () => {
   const { id } = useParams();
   const [courses, setCourses] = useState<Course[]>(coursesData);
+  const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
   const course = courses.find((c) => c.id === id);
+  const selectedLesson = course?.lessons.find((l) => l.id === selectedLessonId);
 
   useEffect(() => {
     const saved = loadProgress();
@@ -21,13 +24,13 @@ const CoursePage = () => {
     }
   }, []);
 
-  const toggleLesson = (lessonId: string) => {
+  const markLessonComplete = (lessonId: string) => {
     if (!course) return;
 
     const updatedCourses = courses.map((c) => {
       if (c.id === course.id) {
         const updatedLessons = c.lessons.map((lesson) =>
-          lesson.id === lessonId ? { ...lesson, completed: !lesson.completed } : lesson
+          lesson.id === lessonId ? { ...lesson, completed: true } : lesson
         );
         const allCompleted = updatedLessons.every((l) => l.completed);
         return { ...c, lessons: updatedLessons, completed: allCompleted };
@@ -37,11 +40,8 @@ const CoursePage = () => {
 
     setCourses(updatedCourses);
     saveProgress(updatedCourses);
-
-    const lesson = course.lessons.find((l) => l.id === lessonId);
-    if (lesson && !lesson.completed) {
-      toast.success("Lesson completed! 🎉");
-    }
+    toast.success("Lesson completed! 🎉");
+    setSelectedLessonId(null);
   };
 
   const completeCourse = () => {
@@ -153,7 +153,7 @@ const CoursePage = () => {
               {course.lessons.map((lesson, index) => (
                 <button
                   key={lesson.id}
-                  onClick={() => toggleLesson(lesson.id)}
+                  onClick={() => setSelectedLessonId(lesson.id)}
                   className="w-full rounded-lg border border-border bg-card p-4 text-left transition-all duration-300 hover:border-primary hover:shadow-[var(--shadow-card)]"
                 >
                   <div className="flex items-center gap-4">
@@ -175,6 +175,17 @@ const CoursePage = () => {
             </div>
           </CardContent>
         </Card>
+
+        {selectedLesson && (
+          <LessonViewer
+            lessonTitle={selectedLesson.title}
+            lessonContent={selectedLesson.content}
+            lessonDuration={selectedLesson.duration}
+            isCompleted={selectedLesson.completed}
+            onClose={() => setSelectedLessonId(null)}
+            onComplete={() => markLessonComplete(selectedLesson.id)}
+          />
+        )}
       </div>
     </div>
   );
