@@ -1,73 +1,23 @@
-# Welcome to your Lovable project
+📚 LearnHub – Mini E-Learning Platform
 
-## Project info
+A prototype e-learning platform built as part of the VibeCoding Week 1 Assignment. The goal was to apply HTML, CSS, JavaScript (and optionally backend concepts) to create a small but functional platform where learners can browse courses, view details, and track their progress.
 
-**URL**: https://lovable.dev/projects/68c672ad-0fad-4bb8-8d14-f44d84f5e489
+🚀 Features
 
-## How can I edit this code?
+🔍 Explore Courses – Displays a list of at least 3 courses.
 
-There are several ways of editing your application.
+📖 Course Details – Click on a course to view more information.
 
-**Use Lovable**
+✅ Mark as Completed – Learners can track progress by marking courses as completed.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/68c672ad-0fad-4bb8-8d14-f44d84f5e489) and start prompting.
+Assignment Prompt Used
 
-Changes made via Lovable will be committed automatically to this repo.
+VibeCoding Assignment: Build a Mini E-Learning Platform Objective: Apply the concepts learned in the Week 1 VibeCoding session by building a small e-learning platform prototype. This assignment encourages combining HTML, CSS, JavaScript, and optionally a backend, while leveraging AI-assisted coding to speed up development.
 
-**Use your preferred IDE**
+Project Brief:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+View a list of courses (at least 3).
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+See course details when clicked.
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/68c672ad-0fad-4bb8-8d14-f44d84f5e489) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Mark a course as “completed”.
